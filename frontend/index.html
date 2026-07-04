@@ -8,6 +8,18 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      window.addEventListener('error', function(e) {
+        document.body.innerHTML = '<div style="background:#222; color:red; font-family:monospace; font-size:18px; padding:20px; z-index:999999; position:absolute; inset:0; overflow:auto;">' + 
+          '<h2>REACT CRASH:</h2><p>' + e.message + '</p><pre>' + (e.error ? e.error.stack : '') + '</pre>' +
+          '</div>';
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        document.body.innerHTML = '<div style="background:#222; color:red; font-family:monospace; font-size:18px; padding:20px; z-index:999999; position:absolute; inset:0; overflow:auto;">' + 
+          '<h2>PROMISE CRASH:</h2><p>' + (e.reason && e.reason.message ? e.reason.message : e.reason) + '</p>' +
+          '</div>';
+      });
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

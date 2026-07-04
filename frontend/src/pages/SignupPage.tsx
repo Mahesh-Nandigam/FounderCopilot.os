@@ -5,7 +5,7 @@ import { Mail } from 'lucide-react';
 import { GoogleIcon, GithubIcon, LinkedinIcon } from '../components/Icons';
 import { useAppStore } from '../store';
 
-export const playSuccessSound = () => {
+const playSuccessSound = () => {
   const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
   const osc = ctx.createOscillator();
   const gain = ctx.createGain();

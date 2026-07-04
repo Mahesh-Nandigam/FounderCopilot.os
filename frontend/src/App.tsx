@@ -6,6 +6,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { DashboardLayout } from './components/DashboardLayout';
 import { DashboardHome } from './pages/DashboardHome';
 import { HirepanelWorkspace } from './pages/HirepanelWorkspace';
+import { LegalAdvisorWorkspace } from './pages/LegalAdvisorWorkspace';
 import { PlaceholderPage } from './pages/PlaceholderPage';
 import './index.css';
 
@@ -20,8 +21,8 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
             <Route index element={<DashboardHome />} />
             <Route path="hirepanel" element={<HirepanelWorkspace />} />
-            <Route path="legal" element={<PlaceholderPage title="Legal Advisor Workspace" desc="The contract scanning module is currently under construction for Phase 4." />} />
-            <Route path="gtm" element={<PlaceholderPage title="GTM Cross-Poster Workspace" desc="The multi-channel marketing deployment module is currently under construction for Phase 4." />} />
+            <Route path="legal" element={<LegalAdvisorWorkspace />} />
+            <Route path="gtm" element={<PlaceholderPage title="GTM Cross-Poster Workspace" desc="The multi-channel marketing deployment module is currently under construction." />} />
             <Route path="settings" element={<PlaceholderPage title="OS Settings" desc="System preferences and account settings are coming soon." />} />
           </Route>
         </Routes>

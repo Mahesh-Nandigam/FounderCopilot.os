@@ -2,9 +2,22 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { Mail } from 'lucide-react';
-import { playSuccessSound } from './SignupPage';
 import { GoogleIcon, GithubIcon, LinkedinIcon } from '../components/Icons';
 import { useAppStore } from '../store';
+
+const playSuccessSound = () => {
+  const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(880, ctx.currentTime);
+  gain.gain.setValueAtTime(0.1, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.3);
+  osc.start();
+  osc.stop(ctx.currentTime + 0.3);
+};
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();

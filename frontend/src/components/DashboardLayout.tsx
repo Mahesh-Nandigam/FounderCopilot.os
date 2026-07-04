@@ -6,11 +6,11 @@ import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
 
 const SIDEBAR_ITEMS = [
-  { path: '/dashboard', label: 'Overview', icon: LayoutDashboard },
-  { path: '/dashboard/hirepanel', label: 'Hirepanel.ai', icon: Users },
-  { path: '/dashboard/legal', label: 'Legal Advisor', icon: FileText },
-  { path: '/dashboard/gtm', label: 'GTM Cross-Poster', icon: Share2 },
-  { path: '/dashboard/settings', label: 'Settings', icon: Settings },
+  { path: '/dashboard', label: 'Overview', icon: LayoutDashboard, color: '#a1a1aa' },
+  { path: '/dashboard/hirepanel', label: 'Hirepanel.ai', icon: Users, color: '#3b82f6' },
+  { path: '/dashboard/legal', label: 'Legal Advisor', icon: FileText, color: '#ec4899' },
+  { path: '/dashboard/gtm', label: 'GTM Cross-Poster', icon: Share2, color: '#f59e0b' },
+  { path: '/dashboard/settings', label: 'Settings', icon: Settings, color: '#a1a1aa' },
 ];
 
 export const DashboardLayout: React.FC = () => {
@@ -60,7 +60,7 @@ export const DashboardLayout: React.FC = () => {
               onMouseEnter={(e) => { if(!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.05)' }}
               onMouseLeave={(e) => { if(!isActive) e.currentTarget.style.background = 'transparent' }}
               >
-                <Icon size={20} />
+                <Icon size={20} color={item.color} />
                 {!isCollapsed && <span style={{ fontWeight: 500, fontSize: '14px', whiteSpace: 'nowrap' }}>{item.label}</span>}
               </Link>
             );

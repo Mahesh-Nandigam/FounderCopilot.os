@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--bg-primary);
+  --color-primary: var(--accent-primary);
+}
 
 :root {
   /* Default: Dark Mode OS Theme */
@@ -22,31 +28,46 @@
   --font-main: 'Inter', system-ui, sans-serif;
 }
 
-[data-theme='light'] {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-panel: rgba(255, 255, 255, 0.8);
+[data-theme='light']:root {
+  /* Common Colors (Dark Mode Default) */
+  --bg-dark: #000000;
+  --bg-panel: #0a0a0a;
+  --bg-input: #1a1a1a;
   
-  --text-primary: #0f172a;
-  --text-secondary: #64748b;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
   
-  --border-color: rgba(0, 0, 0, 0.1);
-  --glass-bg: rgba(255, 255, 255, 0.8);
+  --accent-primary: #3b82f6; /* Blue */
+  --accent-hover: #2563eb;
+  
+  --border-color: #27272a;
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: var(--font-main);
 }
 
 body {
+  font-family: var(--font-main);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
-  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent main window scrolling (removes outer scrollbar) */
+  overflow: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hide global scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Premium Utilities */

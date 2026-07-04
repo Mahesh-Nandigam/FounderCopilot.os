@@ -20,7 +20,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
             <Route index element={<DashboardHome />} />
-            <Route path="gtm" element={<PlaceholderPage title="GTM Cross-Poster Workspace" desc="The multi-channel marketing deployment module is currently under construction." />} />
+            <Route path="hirepanel" element={null} />
+            <Route path="legal" element={null} />
             <Route path="gtm" element={<PlaceholderPage title="GTM Cross-Poster Workspace" desc="The multi-channel marketing deployment module is currently under construction." />} />
             <Route path="settings" element={<PlaceholderPage title="OS Settings" desc="System preferences and account settings are coming soon." />} />
           </Route>

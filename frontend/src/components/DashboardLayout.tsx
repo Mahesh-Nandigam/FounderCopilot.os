@@ -4,6 +4,8 @@ import { LayoutDashboard, Users, FileText, Share2, Settings, Menu, Sun, Moon, Us
 import { useAppStore } from '../store';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
+import { HirepanelWorkspace } from '../pages/HirepanelWorkspace';
+import { LegalAdvisorWorkspace } from '../pages/LegalAdvisorWorkspace';
 
 const SIDEBAR_ITEMS = [
   { path: '/dashboard', label: 'Overview', icon: LayoutDashboard, color: '#a1a1aa' },
@@ -108,7 +110,15 @@ export const DashboardLayout: React.FC = () => {
 
         {/* Dynamic Page Content */}
         <main style={{ flex: 1, overflowY: 'auto', padding: '40px', position: 'relative' }}>
-          <Outlet />
+          <div style={{ display: location.pathname === '/dashboard/hirepanel' ? 'block' : 'none', height: '100%' }}>
+            <HirepanelWorkspace />
+          </div>
+          <div style={{ display: location.pathname === '/dashboard/legal' ? 'block' : 'none', height: '100%' }}>
+            <LegalAdvisorWorkspace />
+          </div>
+          <div style={{ display: (location.pathname !== '/dashboard/hirepanel' && location.pathname !== '/dashboard/legal') ? 'block' : 'none', height: '100%' }}>
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

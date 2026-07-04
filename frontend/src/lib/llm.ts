@@ -30,7 +30,7 @@ ${contractText.substring(0, 8000)}`;
         "Authorization": `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: "meta/llama-3.1-8b-instruct",
+        model: "meta/llama-3.1-70b-instruct",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.1,
         max_tokens: 2000,
@@ -88,7 +88,7 @@ export const chatWithContract = async (contractText: string, history: any[], use
         "Authorization": `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: "meta/llama-3.1-8b-instruct",
+        model: "meta/llama-3.1-70b-instruct",
         messages: messages,
         temperature: 0.5,
         max_tokens: 1000

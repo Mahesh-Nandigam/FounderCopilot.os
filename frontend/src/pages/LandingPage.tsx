@@ -470,25 +470,7 @@ const LandingPage: React.FC = () => {
               style={{ marginTop: '80px' }}
             >
               <span className="shine-text-white flex items-center justify-center gap-6" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(24px, 2.5vw, 40px)', fontWeight: 600, letterSpacing: '0.02em', fontStyle: 'italic' }}>
-                <span>Build your empire with Employee</span>
-                
-                {/* Exact Classic Smiley Face Match representing '0' */}
-                <svg 
-                  width="72" height="72" viewBox="0 0 100 100" fill="none" stroke="white" strokeWidth="8" strokeLinecap="round" 
-                  className="w-16 h-16 md:w-20 md:h-20 drop-shadow-[0_0_15px_rgba(255,255,255,1)] animate-dynamic-avatar transition-transform duration-700 group-hover:scale-110"
-                >
-                  {/* Outer circle */}
-                  <circle cx="50" cy="50" r="42" />
-                  
-                  {/* Left Eye (Vertical Oval) */}
-                  <ellipse cx="33" cy="38" rx="6.5" ry="10" fill="white" stroke="none" />
-                  
-                  {/* Right Eye (Vertical Oval) */}
-                  <ellipse cx="67" cy="38" rx="6.5" ry="10" fill="white" stroke="none" />
-                  
-                  {/* Deep Smile */}
-                  <path d="M 22 58 Q 50 88 78 58" />
-                </svg>
+                <span>Build your empire with Zero Employees</span>
               </span>
             </div>
           </div>

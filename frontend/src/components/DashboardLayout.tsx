@@ -8,11 +8,7 @@ import { HirepanelWorkspace } from '../pages/HirepanelWorkspace';
 import { LegalAdvisorWorkspace } from '../pages/LegalAdvisorWorkspace';
 
 const SIDEBAR_ITEMS = [
-  { path: '/dashboard', label: 'Overview', icon: LayoutDashboard, color: '#a1a1aa' },
-  { path: '/dashboard/hirepanel', label: 'Hirepanel.ai', icon: Users, color: '#3b82f6' },
-  { path: '/dashboard/legal', label: 'Legal Advisor', icon: FileText, color: '#ec4899' },
-  { path: '/dashboard/gtm', label: 'GTM Cross-Poster', icon: Share2, color: '#f59e0b' },
-  { path: '/dashboard/settings', label: 'Settings', icon: Settings, color: '#a1a1aa' },
+  { path: '/dashboard', label: 'GTM Cross-Poster', icon: Share2, color: '#f59e0b' },
 ];
 
 export const DashboardLayout: React.FC = () => {
@@ -99,8 +95,8 @@ export const DashboardLayout: React.FC = () => {
           zIndex: 5
         }}>
           <div>
-            <h3 style={{ color: 'var(--text-secondary)', fontSize: '15px', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '8px' }}>
-              Dashboard <span style={{ color: 'var(--border-color)' }}>/</span> <span style={{ color: 'var(--text-primary)' }}>{SIDEBAR_ITEMS.find(i => i.path === location.pathname)?.label || 'Overview'}</span>
+            <h3 style={{ color: 'var(--text-primary)', fontSize: '16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+              Master Orchestrator
             </h3>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>

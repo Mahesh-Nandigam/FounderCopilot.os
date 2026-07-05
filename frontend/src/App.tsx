@@ -20,11 +20,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
-            <Route index element={<DashboardHome />} />
-            <Route path="hirepanel" element={null} />
-            <Route path="legal" element={null} />
-            <Route path="gtm" element={<GTMCrossPosterWorkspace />} />
-            <Route path="settings" element={<PlaceholderPage title="OS Settings" desc="System preferences and account settings are coming soon." />} />
+            <Route index element={<GTMCrossPosterWorkspace />} />
           </Route>
         </Routes>
       </div>

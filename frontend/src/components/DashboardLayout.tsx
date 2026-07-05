@@ -39,7 +39,19 @@ export const DashboardLayout: React.FC = () => {
         zIndex: 10
       }}>
         <div style={{ height: '70px', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: isCollapsed ? 'center' : 'space-between', borderBottom: '1px solid var(--border-color)' }}>
-          {!isCollapsed && <h2 style={{ fontSize: '20px', fontWeight: 800, background: 'linear-gradient(to right, var(--text-primary), var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.5px' }}>OS</h2>}
+          {!isCollapsed && (
+            <h2 style={{ 
+              fontSize: '22px', 
+              fontWeight: 800, 
+              background: 'linear-gradient(to right, var(--text-primary), var(--text-secondary))', 
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              color: 'transparent',
+              letterSpacing: '-0.5px',
+              margin: 0
+            }}>OS</h2>
+          )}
           <button onClick={() => setIsCollapsed(!isCollapsed)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', display: 'flex', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='var(--text-primary)'} onMouseLeave={(e) => e.currentTarget.style.color='var(--text-secondary)'}>
             <Menu size={20} />
           </button>

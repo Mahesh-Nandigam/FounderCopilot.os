@@ -520,7 +520,7 @@ const LandingPage: React.FC = () => {
           </h2>
           
           <button 
-            onClick={() => navigate('/signup')} 
+            onClick={() => navigate('/dashboard')} 
             className="rainbow-glow-btn" 
             style={{ 
               padding: '20px 48px', 

@@ -7,6 +7,7 @@ import { DashboardLayout } from './components/DashboardLayout';
 import { DashboardHome } from './pages/DashboardHome';
 import { HirepanelWorkspace } from './pages/HirepanelWorkspace';
 import { LegalAdvisorWorkspace } from './pages/LegalAdvisorWorkspace';
+import GTMCrossPosterWorkspace from './pages/GTMCrossPosterWorkspace';
 import { PlaceholderPage } from './pages/PlaceholderPage';
 import './index.css';
 
@@ -22,7 +23,7 @@ function App() {
             <Route index element={<DashboardHome />} />
             <Route path="hirepanel" element={null} />
             <Route path="legal" element={null} />
-            <Route path="gtm" element={<PlaceholderPage title="GTM Cross-Poster Workspace" desc="The multi-channel marketing deployment module is currently under construction." />} />
+            <Route path="gtm" element={<GTMCrossPosterWorkspace />} />
             <Route path="settings" element={<PlaceholderPage title="OS Settings" desc="System preferences and account settings are coming soon." />} />
           </Route>
         </Routes>

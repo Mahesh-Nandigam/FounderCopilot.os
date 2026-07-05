@@ -9,7 +9,10 @@ import { LegalAdvisorWorkspace } from '../pages/LegalAdvisorWorkspace';
 
 const SIDEBAR_ITEMS = [
   { path: '/dashboard', label: 'Master Orchestrator', icon: LayoutDashboard, color: '#a1a1aa' },
+  { path: '/dashboard/hirepanel', label: 'Hirepanel.ai', icon: Users, color: '#3b82f6' },
+  { path: '/dashboard/legal', label: 'Legal Advisor', icon: FileText, color: '#ec4899' },
   { path: '/dashboard/gtm', label: 'GTM Cross-Poster', icon: Share2, color: '#f59e0b' },
+  { path: '/dashboard/settings', label: 'Settings', icon: Settings, color: '#a1a1aa' },
 ];
 
 export const DashboardLayout: React.FC = () => {

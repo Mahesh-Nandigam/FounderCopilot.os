@@ -4,6 +4,7 @@ import { SplineScene } from "../components/ui/splite";
 import { Card } from "../components/ui/card";
 import { Spotlight } from "../components/ui/spotlight";
 import { Network, Scale, CircleDollarSign, Rocket, Smile, Sparkles, Zap, TrendingUp, Clock, Shield } from 'lucide-react';
+import ScrollTextHighlight from '../components/ui/ScrollTextHighlight';
 
 const GithubIcon = ({ color = 'currentColor', ...props }: any) => (
   <svg
@@ -556,7 +557,10 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 3: Animated Video Background (Third Scroll) */}
+      {/* SECTION 3: Animated Text Scroll (Replaced Image/Video) */}
+      <ScrollTextHighlight />
+
+      {/* SECTION 4: HappyRobot Inspired Video Section */}
       <section style={{ 
         height: '100vh', 
         width: '100vw', 
@@ -565,8 +569,6 @@ const LandingPage: React.FC = () => {
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-end',
-        alignItems: 'center'
       }}>
         <video 
           autoPlay 
@@ -581,28 +583,49 @@ const LandingPage: React.FC = () => {
             height: '100%',
             objectFit: 'cover',
             zIndex: 0,
-            pointerEvents: 'none'
+            pointerEvents: 'none',
+            filter: 'brightness(0.9)'
           }}
         >
-          <source src="https://lucabg.dev/hero-pingpong.mp4" type="video/mp4" />
+          <source src="https://happyrobot.b-cdn.net/HappyRobot_HeroLoop_v01_up.mp4" type="video/mp4" />
         </video>
 
-        <div style={{ 
-          position: 'absolute', 
-          top: -2, 
-          left: 0, 
-          right: 0, 
-          height: '50vh', 
-          background: 'linear-gradient(to bottom, #000000 0%, #000000 15%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.4) 70%, transparent 100%)', 
-          pointerEvents: 'none', 
-          zIndex: 1 
-        }} />
-        
-        {/* Bottom gradient to blend seamlessly into the black section below */}
-        <div style={{ position: 'absolute', bottom: -2, left: 0, right: 0, height: '30vh', background: 'linear-gradient(to top, #000000 0%, transparent 100%)', pointerEvents: 'none', zIndex: 1 }} />
+
+
+        {/* Center Content */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4" style={{ marginTop: '40px' }}>
+          <h2 style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: 'clamp(48px, 8vw, 110px)',
+            color: '#ececec',
+            lineHeight: 1.0,
+            fontWeight: 400,
+            letterSpacing: '-0.02em',
+            maxWidth: '1400px',
+            marginBottom: '40px'
+          }}>
+            Put agents to work in<br />complex environments
+          </h2>
+          <button 
+            onClick={() => navigate('/dashboard')}
+            className="transition-all hover:bg-white/10" 
+            style={{
+              background: '#0a0a0a',
+              color: '#ececec',
+              padding: '14px 32px',
+              borderRadius: '8px',
+              fontSize: '16px',
+              fontWeight: 500,
+              fontFamily: "'Inter', sans-serif",
+              border: '1px solid rgba(255,255,255,0.1)'
+            }}
+          >
+            Book a demo
+          </button>
+        </div>
       </section>
 
-      {/* SECTION 4: Meet our agents (Marquee) */}
+      {/* SECTION 5: Meet our agents (Marquee) */}
       <section style={{ 
         minHeight: '60vh', 
         width: '100vw', 

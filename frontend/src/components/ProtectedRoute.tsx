@@ -8,12 +8,33 @@ export const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ childr
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // HACKATHON BYPASS: Instantly authenticate so the user can test the app without setting up OAuth providers
-    if (!user) {
-      setUser({ email: 'founder@foundercopilot.os' });
+    // Check if Supabase passed an error back from Google in the URL hash
+    if (window.location.hash.includes('error_description')) {
+      const params = new URLSearchParams(window.location.hash.substring(1));
+      alert('OAuth Error: ' + params.get('error_description'));
     }
-    setLoading(false);
-  }, [setUser, user]);
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) {
+        setUser(session.user);
+      }
+      // Prevent race condition where React Router redirects before Supabase parses the URL hash
+      if (window.location.hash.includes('access_token') && !session) {
+        // Don't set loading to false yet, let onAuthStateChange handle it
+      } else {
+        setLoading(false);
+      }
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setUser(session.user);
+      }
+      setLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
+  }, [setUser]);
 
   if (loading) return <div className="flex-center" style={{ minHeight: '100vh' }}>Loading OS...</div>;
   if (!user) return <Navigate to="/" replace />;

@@ -8,7 +8,8 @@ import { HirepanelWorkspace } from '../pages/HirepanelWorkspace';
 import { LegalAdvisorWorkspace } from '../pages/LegalAdvisorWorkspace';
 
 const SIDEBAR_ITEMS = [
-  { path: '/dashboard', label: 'GTM Cross-Poster', icon: Share2, color: '#f59e0b' },
+  { path: '/dashboard', label: 'Master Orchestrator', icon: LayoutDashboard, color: '#a1a1aa' },
+  { path: '/dashboard/gtm', label: 'GTM Cross-Poster', icon: Share2, color: '#f59e0b' },
 ];
 
 export const DashboardLayout: React.FC = () => {
@@ -96,7 +97,7 @@ export const DashboardLayout: React.FC = () => {
         }}>
           <div>
             <h3 style={{ color: 'var(--text-primary)', fontSize: '16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-              Master Orchestrator
+              {SIDEBAR_ITEMS.find(i => i.path === location.pathname)?.label || 'Master Orchestrator'}
             </h3>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>

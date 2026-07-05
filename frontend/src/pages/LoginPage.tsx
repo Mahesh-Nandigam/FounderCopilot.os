@@ -48,9 +48,15 @@ const LoginPage: React.FC = () => {
   const { setUser } = useAppStore();
 
   const handleOAuth = async (provider: 'google' | 'github' | 'linkedin_oidc') => {
-    // Temporary bypass for UI testing since Google keys are still propagating
-    setUser({ email: 'founder@foundercopilot.os' });
-    navigate('/dashboard');
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: window.location.origin + '/dashboard',
+      },
+    });
+    if (error) {
+      alert(error.message);
+    }
   };
 
   return (

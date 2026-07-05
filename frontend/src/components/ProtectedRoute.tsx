@@ -37,7 +37,7 @@ export const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [setUser]);
 
   if (loading) return <div className="flex-center" style={{ minHeight: '100vh' }}>Loading OS...</div>;
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/" replace />;
 
   return <>{children}</>;
 };

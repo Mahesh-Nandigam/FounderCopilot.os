@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { SplineScene } from "../components/ui/splite";
 import { Card } from "../components/ui/card";
 import { Spotlight } from "../components/ui/spotlight";
-import { Network, Scale, CircleDollarSign, Rocket, Smile } from 'lucide-react';
+import { Network, Scale, CircleDollarSign, Rocket, Smile, Sparkles, Zap, TrendingUp, Clock, Shield } from 'lucide-react';
 
 const GithubIcon = ({ color = 'currentColor', ...props }: any) => (
   <svg
@@ -411,6 +411,16 @@ const LandingPage: React.FC = () => {
             filter: blur(25px);
             bottom: -20px;
           }
+
+          @keyframes border-shine {
+            0% { border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 5px rgba(255, 255, 255, 0.05); }
+            50% { border-color: rgba(255, 255, 255, 0.5); box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+            100% { border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 5px rgba(255, 255, 255, 0.05); }
+          }
+
+          .shining-border {
+            animation: border-shine 3s infinite alternate;
+          }
         `}
       </style>
 
@@ -423,55 +433,83 @@ const LandingPage: React.FC = () => {
         
         <div className="relative w-full h-[100vh] overflow-hidden z-20">
           
-          {/* Top Left content (Text) */}
-          <div className="absolute top-12 md:top-16 left-[5vw] md:left-[8vw] z-30 pointer-events-none flex flex-col items-start">
-            <div className="flex flex-col items-start mb-6 gap-2">
-              <h1 style={{ 
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: 'clamp(50px, 6.5vw, 105px)', 
-                fontWeight: 800, 
-                background: 'linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #71717a 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                letterSpacing: '0.02em', 
-                lineHeight: 1.0, 
-                whiteSpace: 'nowrap'
-              }}>
-                Founder
-              </h1>
-              <h1 style={{ 
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: 'clamp(50px, 6.5vw, 105px)', 
-                fontWeight: 800, 
-                background: 'linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #71717a 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                letterSpacing: '0.02em', 
-                lineHeight: 1.0, 
-                whiteSpace: 'nowrap'
-              }}>
-                Copilot<span style={{ color: '#fef3c7', WebkitTextFillColor: '#fef3c7' }}>.os</span>
-              </h1>
-            </div>
-            <p className="floating-tagline shine-text" style={{ 
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: 'clamp(18px, 2vw, 26px)', 
-              lineHeight: 1.4, 
-              fontWeight: 400, 
-              maxWidth: '800px', 
-              whiteSpace: 'nowrap',
-              marginTop: 'clamp(60px, 8vh, 120px)'
-            }}>
-              Turns hours of work into <span className="shine-text-pink" style={{ fontWeight: 600 }}>seconds of execution.</span>
-            </p>
+          {/* Top Left Header / Navbar */}
+          <div className="absolute top-8 left-[5vw] md:left-[5vw] z-50 flex items-center gap-3">
+            <Sparkles size={28} className="text-white" />
+            <span className="text-white font-bold text-2xl tracking-tight" style={{ fontFamily: "'Inter', sans-serif" }}>FounderCopilot.os</span>
+          </div>
+
+          {/* Main Content Left */}
+          <div className="absolute top-[18vh] left-[5vw] md:left-[5vw] z-40 pointer-events-none flex flex-col items-start w-full max-w-2xl">
             
-            <div 
-              className="inline-flex items-center transition-all duration-500 pointer-events-auto cursor-pointer group"
-              style={{ marginTop: '80px' }}
-            >
-              <span className="shine-text-white flex items-center justify-center gap-6" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(24px, 2.5vw, 40px)', fontWeight: 600, letterSpacing: '0.02em', fontStyle: 'italic' }}>
-                <span>Build your empire with Zero Employees</span>
-              </span>
+            {/* Pill */}
+            <div className="mb-4 flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+              <Sparkles size={14} className="text-white/80" />
+              <span className="text-white/80 text-xs font-semibold tracking-widest uppercase">AI Agent for Founders</span>
+            </div>
+
+            {/* Main Title */}
+            <h1 style={{ 
+              fontFamily: "'Outfit', sans-serif",
+              fontSize: 'clamp(56px, 6vw, 96px)', 
+              fontWeight: 800, 
+              color: '#ffffff',
+              letterSpacing: '-0.03em', 
+              lineHeight: 1.1, 
+              marginBottom: '16px'
+            }}>
+              FounderCopilot.os
+            </h1>
+
+            {/* Subtitle (Statement 1) */}
+            <p className="text-white" style={{ 
+              fontFamily: "'Inter', sans-serif", 
+              fontSize: 'clamp(28px, 3.5vw, 44px)', 
+              lineHeight: 1.2, 
+              fontWeight: 600, 
+              letterSpacing: '-0.01em',
+              marginBottom: '16px'
+            }}>
+              Turns hours of work into <span className="text-white font-bold shine-text-white">seconds of execution.</span>
+            </p>
+
+            {/* Description (Statements 2 & 3) */}
+            <div style={{ marginBottom: '24px' }}>
+              <p className="text-white/60" style={{ fontFamily: "'Inter', sans-serif", fontSize: '18px', lineHeight: 1.6, fontWeight: 400, maxWidth: '420px' }}>
+                Your always-on AI co-founder.<br/>
+                Plan, hire, iterate, scale faster than ever before.
+              </p>
+            </div>
+
+            {/* Metric Cards Grid */}
+            <div className="grid grid-cols-4 gap-4 w-full pointer-events-auto max-w-4xl" style={{ marginTop: '0px' }}>
+              <div className="shining-border flex flex-col items-center justify-center p-6 rounded-3xl border-2 bg-black/40 backdrop-blur-md transition-all hover:bg-white/10 hover:scale-105">
+                <Zap size={28} className="text-white mb-4 drop-shadow-md" />
+                <span className="text-white font-bold text-3xl mb-1">10x</span>
+                <span className="text-white/90 text-xs font-semibold mb-3 text-center whitespace-nowrap">Faster Execution</span>
+                <span className="text-white/50 text-[11px] text-center leading-snug">Ship more, in less<br/>time.</span>
+              </div>
+              
+              <div className="shining-border flex flex-col items-center justify-center p-6 rounded-3xl border-2 bg-black/40 backdrop-blur-md transition-all hover:bg-white/10 hover:scale-105" style={{ animationDelay: '0.5s' }}>
+                <TrendingUp size={28} className="text-white mb-4 drop-shadow-md" />
+                <span className="text-white font-bold text-3xl mb-1">90%</span>
+                <span className="text-white/90 text-xs font-semibold mb-3 text-center whitespace-nowrap">Growth</span>
+                <span className="text-white/50 text-[11px] text-center leading-snug">Accelerate with<br/>AI-powered decisions.</span>
+              </div>
+
+              <div className="shining-border flex flex-col items-center justify-center p-6 rounded-3xl border-2 bg-black/40 backdrop-blur-md transition-all hover:bg-white/10 hover:scale-105" style={{ animationDelay: '1s' }}>
+                <Clock size={28} className="text-white mb-4 drop-shadow-md" />
+                <span className="text-white font-bold text-3xl mb-1">24/7</span>
+                <span className="text-white/90 text-xs font-semibold mb-3 text-center whitespace-nowrap">Always On</span>
+                <span className="text-white/50 text-[11px] text-center leading-snug">Working for you,<br/>every second.</span>
+              </div>
+
+              <div className="shining-border flex flex-col items-center justify-center p-6 rounded-3xl border-2 bg-black/40 backdrop-blur-md transition-all hover:bg-white/10 hover:scale-105" style={{ animationDelay: '1.5s' }}>
+                <Shield size={28} className="text-white mb-4 drop-shadow-md" />
+                <span className="text-white font-bold text-3xl mb-1">Secure</span>
+                <span className="text-white/90 text-xs font-semibold mb-3 text-center whitespace-nowrap">Privacy First</span>
+                <span className="text-white/50 text-[11px] text-center leading-snug">Enterprise-grade<br/>security.</span>
+              </div>
             </div>
           </div>
 
@@ -549,7 +587,16 @@ const LandingPage: React.FC = () => {
           <source src="https://lucabg.dev/hero-pingpong.mp4" type="video/mp4" />
         </video>
 
-        <div style={{ position: 'absolute', top: -2, left: 0, right: 0, height: '40vh', background: 'linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0.8) 30%, transparent 100%)', pointerEvents: 'none', zIndex: 1 }} />
+        <div style={{ 
+          position: 'absolute', 
+          top: -2, 
+          left: 0, 
+          right: 0, 
+          height: '50vh', 
+          background: 'linear-gradient(to bottom, #000000 0%, #000000 15%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.4) 70%, transparent 100%)', 
+          pointerEvents: 'none', 
+          zIndex: 1 
+        }} />
         
         {/* Bottom gradient to blend seamlessly into the black section below */}
         <div style={{ position: 'absolute', bottom: -2, left: 0, right: 0, height: '30vh', background: 'linear-gradient(to top, #000000 0%, transparent 100%)', pointerEvents: 'none', zIndex: 1 }} />

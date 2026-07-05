@@ -20,6 +20,7 @@
   
   --border-color: rgba(255, 255, 255, 0.1);
   --glass-bg: rgba(18, 18, 20, 0.7);
+  --hover-bg: rgba(255, 255, 255, 0.05);
   
   --danger: #ef4444;
   --success: #10b981;
@@ -28,19 +29,21 @@
   --font-main: 'Inter', system-ui, sans-serif;
 }
 
-[data-theme='light']:root {
-  /* Common Colors (Dark Mode Default) */
-  --bg-dark: #000000;
-  --bg-panel: #0a0a0a;
-  --bg-input: #1a1a1a;
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-panel: rgba(255, 255, 255, 0.6);
+  --bg-input: #f9fafb;
   
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
   
-  --accent-primary: #3b82f6; /* Blue */
-  --accent-hover: #2563eb;
+  --accent-primary: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.3);
   
-  --border-color: #27272a;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --hover-bg: rgba(0, 0, 0, 0.05);
 }
 
 * {

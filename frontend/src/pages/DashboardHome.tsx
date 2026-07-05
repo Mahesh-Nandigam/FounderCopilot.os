@@ -105,7 +105,7 @@ export const DashboardHome: React.FC = () => {
         animation: 'gradient-xy 3s linear infinite'
       }} />
       
-      <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', background: '#0a0a0a', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)', padding: '8px' }}>
+      <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', background: 'var(--bg-input)', borderRadius: '24px', border: '1px solid var(--border-color)', padding: '8px' }}>
         <input
           ref={inputRef}
           type="text"
@@ -117,7 +117,7 @@ export const DashboardHome: React.FC = () => {
             flex: 1,
             background: 'transparent',
             border: 'none',
-            color: 'white',
+            color: 'var(--text-primary)',
             fontSize: '16px',
             padding: '12px 16px',
             outline: 'none'
@@ -128,8 +128,8 @@ export const DashboardHome: React.FC = () => {
           type="submit"
           disabled={!input.trim() || isProcessing}
           style={{
-            background: input.trim() ? 'white' : 'rgba(255,255,255,0.1)',
-            color: input.trim() ? 'black' : 'rgba(255,255,255,0.4)',
+            background: input.trim() ? 'var(--text-primary)' : 'var(--hover-bg)',
+            color: input.trim() ? 'var(--bg-primary)' : 'var(--text-secondary)',
             border: 'none',
             width: '40px',
             height: '40px',
@@ -161,7 +161,7 @@ export const DashboardHome: React.FC = () => {
             fontSize: 'clamp(32px, 5vw, 48px)', 
             fontFamily: '"Playfair Display", Georgia, serif', 
             fontWeight: 500, 
-            color: 'white', 
+            color: 'var(--text-primary)', 
             marginBottom: '40px',
             textAlign: 'center'
           }}>
@@ -179,17 +179,17 @@ export const DashboardHome: React.FC = () => {
                 key={suggestion}
                 onClick={() => handleSubmit(undefined, suggestion)}
                 style={{
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  color: 'rgba(255,255,255,0.7)',
+                  background: 'var(--hover-bg)',
+                  border: '1px solid var(--border-color)',
+                  color: 'var(--text-secondary)',
                   padding: '8px 16px',
                   borderRadius: '100px',
                   fontSize: '14px',
                   cursor: 'pointer',
                   transition: 'all 0.2s'
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'white'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--border-color)'; e.currentTarget.style.color = 'var(--text-primary)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--hover-bg)'; e.currentTarget.style.color = 'var(--text-secondary)'; }}
               >
                 {suggestion}
               </button>
@@ -207,19 +207,19 @@ export const DashboardHome: React.FC = () => {
                 justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start' 
               }}>
                 {msg.role === 'agent' && (
-                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)', flexShrink: 0 }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--hover-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-color)', flexShrink: 0 }}>
                     <Bot size={20} className="text-pink-400" />
                   </div>
                 )}
                 
                 <div style={{ 
-                  background: msg.role === 'user' ? 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)' : 'rgba(20, 20, 22, 0.7)', 
+                  background: msg.role === 'user' ? 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)' : 'var(--bg-panel)', 
                   padding: '16px 24px', 
                   borderRadius: msg.role === 'user' ? '24px 24px 4px 24px' : '24px 24px 24px 4px',
-                  border: msg.role === 'agent' ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                  border: msg.role === 'agent' ? '1px solid var(--border-color)' : 'none',
                   backdropFilter: 'blur(20px)',
                   maxWidth: '80%',
-                  color: 'white',
+                  color: msg.role === 'user' ? 'white' : 'var(--text-primary)',
                   fontSize: '16px',
                   lineHeight: 1.6
                 }}>
@@ -227,7 +227,7 @@ export const DashboardHome: React.FC = () => {
                 </div>
 
                 {msg.role === 'user' && (
-                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)', flexShrink: 0 }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--hover-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-color)', flexShrink: 0 }}>
                     <User size={20} className="text-cyan-400" />
                   </div>
                 )}
@@ -236,10 +236,10 @@ export const DashboardHome: React.FC = () => {
             
             {isProcessing && (
               <div style={{ display: 'flex', gap: '16px', justifyContent: 'flex-start' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)', flexShrink: 0 }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--hover-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-color)', flexShrink: 0 }}>
                   <Bot size={20} className="text-pink-400 animate-pulse" />
                 </div>
-                <div style={{ background: 'rgba(20, 20, 22, 0.7)', padding: '16px 24px', borderRadius: '24px 24px 24px 4px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: '8px', alignItems: 'center' }}>
+                <div style={{ background: 'var(--bg-panel)', padding: '16px 24px', borderRadius: '24px 24px 24px 4px', border: '1px solid var(--border-color)', display: 'flex', gap: '8px', alignItems: 'center' }}>
                   <div className="w-2 h-2 rounded-full bg-white/50 animate-bounce" style={{ animationDelay: '0ms' }} />
                   <div className="w-2 h-2 rounded-full bg-white/50 animate-bounce" style={{ animationDelay: '150ms' }} />
                   <div className="w-2 h-2 rounded-full bg-white/50 animate-bounce" style={{ animationDelay: '300ms' }} />

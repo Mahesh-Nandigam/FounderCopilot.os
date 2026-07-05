@@ -27,7 +27,7 @@ export const DashboardLayout: React.FC = () => {
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', background: 'var(--bg-main)' }}>
+    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', background: 'var(--bg-primary)' }}>
       {/* Sidebar */}
       <div style={{ 
         width: isCollapsed ? '80px' : '260px', 
@@ -39,8 +39,8 @@ export const DashboardLayout: React.FC = () => {
         zIndex: 10
       }}>
         <div style={{ height: '70px', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: isCollapsed ? 'center' : 'space-between', borderBottom: '1px solid var(--border-color)' }}>
-          {!isCollapsed && <h2 style={{ fontSize: '20px', fontWeight: 800, background: 'linear-gradient(to right, #fff, #a1a1aa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.5px' }}>OS</h2>}
-          <button onClick={() => setIsCollapsed(!isCollapsed)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', display: 'flex', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='white'} onMouseLeave={(e) => e.currentTarget.style.color='var(--text-secondary)'}>
+          {!isCollapsed && <h2 style={{ fontSize: '20px', fontWeight: 800, background: 'linear-gradient(to right, var(--text-primary), var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.5px' }}>OS</h2>}
+          <button onClick={() => setIsCollapsed(!isCollapsed)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', display: 'flex', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='var(--text-primary)'} onMouseLeave={(e) => e.currentTarget.style.color='var(--text-secondary)'}>
             <Menu size={20} />
           </button>
         </div>
@@ -52,14 +52,14 @@ export const DashboardLayout: React.FC = () => {
             return (
               <Link key={item.path} to={item.path} style={{
                 display: 'flex', alignItems: 'center', padding: '12px', borderRadius: '8px',
-                background: isActive ? 'rgba(255,255,255,0.1)' : 'transparent',
-                color: isActive ? 'white' : 'var(--text-secondary)',
+                background: isActive ? 'var(--hover-bg)' : 'transparent',
+                color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
                 textDecoration: 'none',
                 gap: '16px',
                 transition: 'all 0.2s ease',
                 justifyContent: isCollapsed ? 'center' : 'flex-start'
               }}
-              onMouseEnter={(e) => { if(!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.05)' }}
+              onMouseEnter={(e) => { if(!isActive) e.currentTarget.style.background = 'var(--hover-bg)' }}
               onMouseLeave={(e) => { if(!isActive) e.currentTarget.style.background = 'transparent' }}
               >
                 <Icon size={20} color={item.color} />
@@ -92,12 +92,12 @@ export const DashboardLayout: React.FC = () => {
             </h3>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', display: 'flex', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='white'} onMouseLeave={(e) => e.currentTarget.style.color='var(--text-secondary)'}>
+            <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', display: 'flex', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color='var(--text-primary)'} onMouseLeave={(e) => e.currentTarget.style.color='var(--text-secondary)'}>
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <div style={{ height: '24px', width: '1px', background: 'var(--border-color)' }} />
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px', fontWeight: 500 }}>
-              <div className="flex-center" style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', color: 'white' }}>
+              <div className="flex-center" style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--hover-bg)', color: 'var(--text-primary)' }}>
                 <User size={16} />
               </div>
               <span>{user?.email}</span>
